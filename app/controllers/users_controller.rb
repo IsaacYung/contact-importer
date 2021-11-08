@@ -10,14 +10,18 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            redirect_to sign_in_path, notice: "Usuário foi criado com sucesso!"
+            redirect_to sign_in_path, notice: "User created successfully!"
         else
             render action: :new
         end
     end
 
     def show
+        @offset = params[:offset].to_i
+        @offset = 0 if @offset < 0
+
         @user = User.find(params[:id])
+        @contacts = @user.contacts.limit(6).offset(@offset || 0)
     end
 
     private

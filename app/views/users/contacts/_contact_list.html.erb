@@ -1,0 +1,31 @@
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @contacts.each.with_index(@offset) do |contact, index| %>
+            <tr>
+                <th scope="row"><%= index %></th>
+                <td><%= contact.name %></td>
+                <td><%= contact.phone %></td>
+                <td><%= contact.email %></td>
+            </tr>
+            <% end %>
+
+        </tbody>
+    </table>
+    <div class="row col-lg-12">
+        <div class="col-lg-2">
+            <%= button_to "Prev", current_user, method: :get, class: "btn float-left btn-primary", params: { offset: @offset - 6 } %>
+        </div>
+        <div class="col-lg-2 float-r">
+            <%= button_to "Next", current_user, method: :get, class: "btn float-right btn-primary", params: { offset: @offset + 6 } %>
+        </div>
+    </div>
+</div>
