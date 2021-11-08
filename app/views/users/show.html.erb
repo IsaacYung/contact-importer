@@ -1,4 +1,33 @@
-<div class="container form-style">
-    <h3>Perfil de <%= @user.name %> </h3>
-    <%= @user.email %>
+<div class="container form-style d-flex justify-content-center">
+    <div class="container col-lg-6 col-sm-12 row">
+        <h4>Load Contacts</h4>
+        <div class="col-lg-12">
+            
+            <%= render "users/contacts/contact_loader" %>
+        </div>
+    </div>
+    <div class="container col-lg-6 col-sm-12 row">
+        <h4>Contacts</h4>
+        <%= form_for @user,  html: { class: 'row' } do |f| %>
+        <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <div class="alert-error">
+                O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+            </div>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <div class="col-lg-6 field input-group input-group-sm mb-3">
+            <%= f.label :name, class: "input-group-text" %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="col-lg-6 actions input-group input-group-sm mb-3">
+            <%= f.submit "Create", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
 </div>

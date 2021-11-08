@@ -1,0 +1,11 @@
+services: 
+  mysql:
+    image: mysql:8.0.27
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: contact_importer
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
