@@ -1,0 +1,43 @@
+<div class="container form-style col-lg-6">
+    <h1 class="h1">Select Data Source</h1>
+    <div>
+        <%= form_tag(users_contacts_import_path, multipart: true,  html: { class: 'col-lg-6 row' }) do %>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Uploaded File: [#{@file_name}]", nil, class: "input-group-text file-upload" %>
+            <%= hidden_field_tag :csv_file, @file_data %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Name", nil, class: "input-group-text" %>
+            <%= select_tag :name, options_for_select(@csv_headers, "Name"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Date of Birth", nil, class: "input-group-text" %>
+            <%= select_tag :birth, options_for_select(@csv_headers, "Date of Birth"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Phone", nil, class: "input-group-text" %>
+            <%= select_tag :phone, options_for_select(@csv_headers, "Phone"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Address", nil, class: "input-group-text" %>
+            <%= select_tag :address, options_for_select(@csv_headers, "Address"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Credit Card", nil, class: "input-group-text" %>
+            <%= select_tag :credit_card, options_for_select(@csv_headers, "Credit Card"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Franchise", nil, class: "input-group-text" %>
+            <%= select_tag :franchise, options_for_select(@csv_headers, "Franchise"), class: "form-select" %>
+        </div>
+        <div class="field input-group input-group-sm mb-3">
+            <%= label_tag "Email", nil, class: "input-group-text" %>
+            <%= select_tag :email, options_for_select(@csv_headers, "Email"), class: "form-select" %>
+        </div>
+
+        <div class="actions input-group input-group-sm mb-3">
+            <%= submit_tag "Select", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+</div>

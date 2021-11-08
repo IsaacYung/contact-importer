@@ -1,4 +1,15 @@
-<div class="container form-style">
-    <h3>Perfil de <%= @user.name %> </h3>
-    <%= @user.email %>
+<div class="container form-style d-flex align-items-start">
+    <div class="container col-lg-6 col-sm-12 row">
+        <h4>Load Contacts</h4>
+        <div class="col-lg-12">
+            <%= render "users/contacts/contact_loader" %>
+             <%= flash[:notice] %>
+        </div>
+    </div>
+    <div class="container col-lg-6 col-sm-12 row">
+        <h4>Contacts</h4>
+        <div class="col-lg-12">
+            <%= render "users/contacts/contact_list" %>
+        </div>
+    </div>
 </div>
