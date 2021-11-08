@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
     resources :users
 
     get    'sign_in', to: 'sessions#new'

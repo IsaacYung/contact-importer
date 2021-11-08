@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
     before_action :block_access, except: [:destroy]
 
+    def new
+        @title = "Sign In"
+    end
+
     def create
         @user = User.find_by(email: params[:session][:email].downcase)
 
