@@ -1,0 +1,17 @@
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="nav-header d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="text-end d-flex flex-row bd-highlight mb-3">
+                <% unless logged_in? %>
+                <%= button_to "Sign-in", sign_in_path, method: :get, class: "btn btn-outline-light me-2" %>
+                <%= button_to "Sign-up!", new_user_path, method: :get, class: "btn btn-warning" %>
+                <% else %>
+                <%= button_to "Sign-out", sign_out_path, method: :delete, class: "btn btn-outline-light me-2" %>
+                <div class="d-flex flex-row bd-highlight profile-wrapper">
+                    <h3 class="h4 profile">❱❱ <%= @user.name.capitalize %></h3>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</header>
