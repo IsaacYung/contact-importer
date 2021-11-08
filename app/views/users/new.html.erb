@@ -1,7 +1,7 @@
 <div class="container form-style">
-    <h1 class="h1">User Register</h1>
+    <h1 class="h1">User Sign-up</h1>
     <%= form_for @user,  html: { class: 'row' } do |f| %>
-    <div class="col-lg-6 row d-flex justify-content-center">
+    <div class="col-lg-6 row">
         <% if @user.errors.any? %>
         <div id="error_explanation">
             <div class="alert-error">
